@@ -4,8 +4,9 @@
     <string name="nav_header_subtitle">nav_subtittle</string>
 
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
-    <string name="title_settingss">Settings</string>
+    <string name="tittle_my_matches">Tournaments</string>
+    <string name="title_matches">My Matches</string>
+    <string name="title_notifications">Notification</string>
+    <string name="tittle_live_feed">Live Feed</string>
     <string name="title_settings">Settings</string>
 </resources>
