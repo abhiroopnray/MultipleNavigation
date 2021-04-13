@@ -7,14 +7,20 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.PagerSnapHelper;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.abhiroop.multiplenavigation.R;
+import com.abhiroop.multiplenavigation.adapter.BannerAdapter;
 import com.abhiroop.multiplenavigation.fragment.about.AboutFragment;
 import com.abhiroop.multiplenavigation.fragment.home.HomeFragment;
 import com.abhiroop.multiplenavigation.fragment.mymatches.MyMatchesFragment;
@@ -28,11 +34,18 @@ import com.abhiroop.multiplenavigation.utils.MultipleNavigationConstants;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout drawerLayout;
     private boolean isDrawerOpen;
     private FragmentManager fragmentManager;
+    private BannerAdapter bannerAdapter;
+    private RecyclerView recyclerView;
+    private final static int BANNER_SCROLL_TIME = 2000;
+    private int count = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +56,41 @@ public class MainActivity extends AppCompatActivity {
         setUpBottomNavigationBar();
         fragmentManager = getSupportFragmentManager();
         loadFragment(MultipleNavigationConstants.HOME_FRAGMENT);
+        setUpBanner();
     }
+
+    private void setUpBanner() {
+        RelativeLayout bannerLayout = findViewById(R.id.banner_layout);
+        recyclerView = bannerLayout.findViewById(R.id.recyclerview_banner);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this) {
+            @Override
+            public void smoothScrollToPosition(RecyclerView recyclerView, RecyclerView.State state, int position) {
+                super.smoothScrollToPosition(recyclerView, state, position);
+            }
+        };
+        recyclerView.setLayoutManager(new LinearLayoutManager(this,
+                LinearLayoutManager.HORIZONTAL, false));
+        bannerAdapter = new BannerAdapter();
+        recyclerView.setAdapter(bannerAdapter);
+        PagerSnapHelper snapHelper = new PagerSnapHelper();
+        //snapHelper.attachToRecyclerView(recyclerView);
+        Timer timer = new Timer();
+        timer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                initiateAutoScroll();
+            }
+        }, 2000, 2000);
+    }
+
+    private void initiateAutoScroll() {
+        if (count >= bannerAdapter.getItemCount()) {
+            recyclerView.smoothScrollToPosition(0);
+            count = 0;
+        }
+        recyclerView.smoothScrollToPosition(++count);
+    }
+
 
     private void setUpBottomNavigationBar() {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav_view);
