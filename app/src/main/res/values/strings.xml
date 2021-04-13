@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">MultipleNavigation</string>
+    <string name="nav_header_title">nav_tittle</string>
+    <string name="nav_header_subtitle">nav_subtittle</string>
+
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_settingss">Settings</string>
+    <string name="title_settings">Settings</string>
+</resources>
