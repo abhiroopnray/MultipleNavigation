@@ -1,16 +1,16 @@
-package com.abhiroop.multiplenavigation.fragment;
+package com.abhiroop.multiplenavigation.fragment.mymatches;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class HomeViewModel extends ViewModel {
+public class MyMatchesViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public HomeViewModel() {
+    public MyMatchesViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is HomeViewModel fragment");
+        mText.setValue("This is MyMatchesViewModel fragment");
     }
 
     public LiveData<String> getText() {

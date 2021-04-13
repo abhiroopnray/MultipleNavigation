@@ -1,4 +1,4 @@
-package com.abhiroop.multiplenavigation.fragment;
+package com.abhiroop.multiplenavigation.fragment.mymatches;
 
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -16,21 +16,21 @@ import android.widget.TextView;
 
 import com.abhiroop.multiplenavigation.R;
 
-public class NotificationFragment extends Fragment {
+public class MyMatchesFragment extends Fragment {
 
-    private NotificationViewModel mViewModel;
+    private MyMatchesViewModel mViewModel;
 
-    /*public static NotificationFragment newInstance() {
-        return new NotificationFragment();
-    }*/
+    public static MyMatchesFragment newInstance() {
+        return new MyMatchesFragment();
+    }
 
-    private NotificationFragment notificationFragment;
+    private MyMatchesFragment myMatchesFragment;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         mViewModel =
-                new ViewModelProvider(this).get(NotificationViewModel.class);
-        View root = inflater.inflate(R.layout.notification_fragment, container, false);
+                new ViewModelProvider(this).get(MyMatchesViewModel.class);
+        View root = inflater.inflate(R.layout.my_matches_fragment, container, false);
         final TextView textView = root.findViewById(R.id.tv);
         mViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
@@ -44,7 +44,7 @@ public class NotificationFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(NotificationViewModel.class);
+        mViewModel = new ViewModelProvider(this).get(MyMatchesViewModel.class);
         // TODO: Use the ViewModel
     }
 

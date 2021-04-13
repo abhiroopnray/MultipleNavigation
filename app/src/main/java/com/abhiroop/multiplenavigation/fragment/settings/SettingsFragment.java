@@ -1,4 +1,4 @@
-package com.abhiroop.multiplenavigation.fragment;
+package com.abhiroop.multiplenavigation.fragment.settings;
 
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;

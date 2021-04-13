@@ -34,14 +34,14 @@
             app:itemIconTint="@color/white"
             app:itemTextColor="@color/white"
             android:foregroundGravity="bottom"
-            app:menu="@menu/bottom_nav_menu" />/>
+            app:menu="@menu/bottom_nav_menu" />
     </RelativeLayout>
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigation"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_gravity="start"
+        android:layout_gravity="left"
         app:headerLayout="@layout/navigation_drawer_head"
         app:menu="@menu/nav_items" />
 

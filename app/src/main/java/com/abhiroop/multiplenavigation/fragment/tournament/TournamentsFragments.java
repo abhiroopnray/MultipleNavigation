@@ -1,4 +1,4 @@
-package com.abhiroop.multiplenavigation.fragment;
+package com.abhiroop.multiplenavigation.fragment.tournament;
 
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -16,21 +16,21 @@ import android.widget.TextView;
 
 import com.abhiroop.multiplenavigation.R;
 
-public class HomeFragment extends Fragment {
+public class TournamentsFragments extends Fragment {
 
-    private HomeViewModel mViewModel;
+    private TournamentsViewModel mViewModel;
 
-    public static HomeFragment newInstance() {
-        return new HomeFragment();
+    public static TournamentsFragments newInstance() {
+        return new TournamentsFragments();
     }
 
-    private HomeFragment homeFragment;
+    private TournamentsFragments tournamentsFragments;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         mViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
-        View root = inflater.inflate(R.layout.home_fragment, container, false);
+                new ViewModelProvider(this).get(TournamentsViewModel.class);
+        View root = inflater.inflate(R.layout.settings_fragment, container, false);
         final TextView textView = root.findViewById(R.id.tv);
         mViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
@@ -44,7 +44,7 @@ public class HomeFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
+        mViewModel = new ViewModelProvider(this).get(TournamentsViewModel.class);
         // TODO: Use the ViewModel
     }
 

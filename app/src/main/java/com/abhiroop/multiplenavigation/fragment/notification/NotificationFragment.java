@@ -1,4 +1,4 @@
-package com.abhiroop.multiplenavigation.fragment;
+package com.abhiroop.multiplenavigation.fragment.notification;
 
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -16,21 +16,21 @@ import android.widget.TextView;
 
 import com.abhiroop.multiplenavigation.R;
 
-public class TournamentsFragments extends Fragment {
+public class NotificationFragment extends Fragment {
 
-    private TournamentsViewModel mViewModel;
+    private NotificationViewModel mViewModel;
 
-    public static TournamentsFragments newInstance() {
-        return new TournamentsFragments();
-    }
+    /*public static NotificationFragment newInstance() {
+        return new NotificationFragment();
+    }*/
 
-    private TournamentsFragments tournamentsFragments;
+    private NotificationFragment notificationFragment;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         mViewModel =
-                new ViewModelProvider(this).get(TournamentsViewModel.class);
-        View root = inflater.inflate(R.layout.settings_fragment, container, false);
+                new ViewModelProvider(this).get(NotificationViewModel.class);
+        View root = inflater.inflate(R.layout.notification_fragment, container, false);
         final TextView textView = root.findViewById(R.id.tv);
         mViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
@@ -44,7 +44,7 @@ public class TournamentsFragments extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(TournamentsViewModel.class);
+        mViewModel = new ViewModelProvider(this).get(NotificationViewModel.class);
         // TODO: Use the ViewModel
     }
 

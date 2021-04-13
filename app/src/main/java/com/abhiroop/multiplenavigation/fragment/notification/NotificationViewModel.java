@@ -1,16 +1,16 @@
-package com.abhiroop.multiplenavigation.fragment;
+package com.abhiroop.multiplenavigation.fragment.notification;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class TournamentsViewModel extends ViewModel {
+public class NotificationViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public TournamentsViewModel() {
+    public NotificationViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is TournamentsViewModel fragment");
+        mText.setValue("This is NotificationViewModel fragment");
     }
 
     public LiveData<String> getText() {
