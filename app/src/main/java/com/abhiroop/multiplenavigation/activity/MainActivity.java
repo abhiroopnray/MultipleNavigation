@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.PagerSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Gravity;
@@ -21,6 +22,7 @@ import android.widget.Toast;
 
 import com.abhiroop.multiplenavigation.R;
 import com.abhiroop.multiplenavigation.adapter.BannerAdapter;
+import com.abhiroop.multiplenavigation.fragment.MyProfileFragment;
 import com.abhiroop.multiplenavigation.fragment.about.AboutFragment;
 import com.abhiroop.multiplenavigation.fragment.home.HomeFragment;
 import com.abhiroop.multiplenavigation.fragment.mymatches.MyMatchesFragment;
@@ -160,20 +162,28 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int itemId = item.getItemId();
                 switch (itemId) {
+                    case R.id.profile:
+                        Intent intent = new Intent(MainActivity.this, MyProfile.class);
+                        startActivity(intent);
+                        closeDrawer();
                     case R.id.about:
                         loadFragment(MultipleNavigationConstants.ABOUT_FRAGMENT);
+                        showHideAdBanner(false);
                         closeDrawer();
                         return true;
                     case R.id.records:
                         loadFragment(MultipleNavigationConstants.RECORDS_FRAGMENT);
+                        showHideAdBanner(false);
                         closeDrawer();
                         return true;
                     case R.id.wallet:
                         loadFragment(MultipleNavigationConstants.WALLET_FRAGMENT);
+                        showHideAdBanner(false);
                         closeDrawer();
                         return true;
                     case R.id.transaction:
                         loadFragment(MultipleNavigationConstants.TOURNAMENT_FRAGMENT);
+                        showHideAdBanner(false);
                         closeDrawer();
                         return true;
                 }
@@ -215,6 +225,10 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case MultipleNavigationConstants.TOURNAMENT_FRAGMENT:
                 fragmentTransaction.replace(R.id.frame, new TournamentsFragments(), tag);
+                fragmentTransaction.commit();
+                break;
+            case MultipleNavigationConstants.MY_PROFILE:
+                fragmentTransaction.replace(R.id.frame, new MyProfileFragment(), tag);
                 fragmentTransaction.commit();
                 break;
             case MultipleNavigationConstants.ABOUT_FRAGMENT:
