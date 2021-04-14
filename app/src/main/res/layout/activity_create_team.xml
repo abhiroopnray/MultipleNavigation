@@ -15,20 +15,146 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/size_200"
         android:layout_below="@+id/toolbar"
-        android:background="#cacaca"></RelativeLayout>
+        android:background="@color/indian_jersey_blue">
 
-    <androidx.viewpager2.widget.ViewPager2
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/pager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/layout_create_team_top_view"
-        app:tabMode="scrollable"/>
+        <TextView
+            android:id="@+id/tv_starts_in"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/margin_10"
+            android:text="Start in 5 hours" />
+
+        <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/card_view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_150"
+            android:layout_below="@+id/tv_starts_in"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/margin_10"
+            card_view:cardCornerRadius="4dp"
+            card_view:cardElevation="4dp"
+            card_view:cardUseCompatPadding="true">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:id="@+id/layout_credit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/margin_10"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Credits" />
+
+                    <TextView
+                        android:id="@+id/tv_credits_left"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="50/100" />
+                </LinearLayout>
+                 <RelativeLayout
+                     android:layout_width="@dimen/size_200"
+                     android:layout_height="wrap_content"
+                     android:layout_centerInParent="true">
+                     <ImageView
+                         android:id="@+id/iv_home_team"
+                         android:layout_width="@dimen/size_50"
+                         android:layout_height="@dimen/size_50"
+                         android:layout_alignParentStart="true"
+                         android:src="@drawable/kkr"/>
+                     <TextView
+                         android:id="@+id/tv_home_team_name"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:layout_alignTop="@+id/iv_home_team"
+                         android:layout_toEndOf="@+id/iv_home_team"
+                         android:layout_marginTop="@dimen/margin_10"
+                         android:text="KKR"/>
+
+                     <TextView
+                         android:id="@+id/tv_home_team_player_chosen"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:layout_below="@+id/tv_home_team_name"
+                         android:layout_toEndOf="@+id/iv_home_team"
+                         android:text="6"/>
+
+                     <ImageView
+                         android:id="@+id/iv_away_team"
+                         android:layout_width="@dimen/size_50"
+                         android:layout_height="@dimen/size_50"
+                         android:layout_alignParentEnd="true"
+                         android:src="@drawable/mumbai_indians"/>
+                     <TextView
+                         android:id="@+id/tv_away_team_name"
+                         android:layout_width="@dimen/size_60"
+                         android:layout_height="wrap_content"
+                         android:layout_alignTop="@+id/iv_away_team"
+                         android:layout_toStartOf="@+id/iv_away_team"
+                         android:gravity="end"
+                         android:layout_marginTop="@dimen/margin_10"
+                         android:layout_marginEnd="@dimen/margin_10"
+                         android:text="MI"/>
+
+                     <TextView
+                         android:id="@+id/tv_away_team_player_chosen"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:layout_below="@+id/tv_away_team_name"
+                         android:layout_toStartOf="@+id/iv_away_team"
+                         android:layout_marginEnd="@dimen/margin_10"
+                         android:text="5"/>
+
+
+
+                 </RelativeLayout>
+                <LinearLayout
+                    android:id="@+id/layout_players"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="@dimen/margin_10"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Players" />
+
+                    <TextView
+                        android:id="@+id/tv_players_left"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="5/10" />
+                </LinearLayout>
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layout_create_team_top_view"
+        android:background="@color/indian_jersey_saffron"
+        app:tabGravity="fill"
+        app:tabMode="fixed" />
 
-
+    <androidx.viewpager2.widget.ViewPager2 xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tab_layout"
+        app:tabMode="scrollable" />
 </RelativeLayout>
