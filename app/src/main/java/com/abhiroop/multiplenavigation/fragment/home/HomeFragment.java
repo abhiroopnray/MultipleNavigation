@@ -49,7 +49,7 @@ public class HomeFragment extends Fragment {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.hasFixedSize();
-        HomeFragmentAdapter adapter = new HomeFragmentAdapter();
+        HomeFragmentAdapter adapter = new HomeFragmentAdapter(getContext());
         recyclerView.setAdapter(adapter);
 
     }
