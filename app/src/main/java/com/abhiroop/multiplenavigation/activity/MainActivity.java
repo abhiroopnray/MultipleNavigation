@@ -15,6 +15,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.RelativeLayout;
@@ -154,6 +156,14 @@ public class MainActivity extends AppCompatActivity {
         actionbar.setDisplayHomeAsUpEnabled(true);*/
     }
 
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.option_menu, menu);
+        return true;
+    }
+
     private void setUpNavigationDrawer() {
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         NavigationView navView = (NavigationView) findViewById(R.id.navigation);
@@ -166,6 +176,7 @@ public class MainActivity extends AppCompatActivity {
                         Intent intent = new Intent(MainActivity.this, MyProfile.class);
                         startActivity(intent);
                         closeDrawer();
+                        return true;
                     case R.id.about:
                         loadFragment(MultipleNavigationConstants.ABOUT_FRAGMENT);
                         showHideAdBanner(false);
@@ -199,6 +210,11 @@ public class MainActivity extends AppCompatActivity {
             case android.R.id.home:
                 drawerLayout.openDrawer(Gravity.RIGHT);
                 isDrawerOpen = true;
+                return true;
+            case R.id.option_wallet:
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.frame, new WalletFragment(), MultipleNavigationConstants.WALLET_FRAGMENT);
+                fragmentManager.beginTransaction().commit();
                 return true;
         }
         return true;
