@@ -26,11 +26,11 @@ public class CreateTeamActivity extends AppCompatActivity {
 
     private TabLayout tabLayout;
     private ViewPager2 viewPager;
-    private int[] tabIcons = {
+    /*private int[] tabIcons = {
             R.drawable.ic_wicket_keeper,
             R.drawable.ic_batsman,
             R.drawable.ic_all_rounder,
-            R.drawable.ic_bowler};
+            R.drawable.ic_bowler};*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,19 +51,19 @@ public class CreateTeamActivity extends AppCompatActivity {
                 switch (position){
                     case 0:
                         tab.setIcon(R.drawable.ic_wicket_keeper);
-                        tab.setText("Wicket '\n' Keeper");
+                        tab.setText(R.string.wicket_keeper);
                         break;
                     case 1:
                         tab.setIcon(R.drawable.ic_batsman);
-                        tab.setText("Batsman");
+                        tab.setText(R.string.batsman);
                         break;
                     case 2:
                         tab.setIcon(R.drawable.ic_all_rounder);
-                        tab.setText("All Rounder");
+                        tab.setText(R.string.all_rounder);
                         break;
                     case 3:
                         tab.setIcon(R.drawable.ic_bowler);
-                        tab.setText("Bowler");
+                        tab.setText(R.string.bowler);
                         break;
                 }
             }

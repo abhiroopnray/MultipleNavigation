@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragment.tournament.TournamentsFragments">
 
-    <TextView
-        android:id="@+id/tv"
+    <com.google.android.material.tabs.TabLayout
+    android:id="@+id/tab_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/indian_jersey_saffron"
+    app:tabGravity="fill"
+    app:tabMode="fixed" />
+
+    <androidx.viewpager2.widget.ViewPager2 xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Hello" />
+        android:layout_below="@+id/tab_layout"
+        app:tabMode="fixed" />
 
-</FrameLayout>
+</RelativeLayout>

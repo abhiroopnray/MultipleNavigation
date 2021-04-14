@@ -25,29 +25,19 @@
                 android:background="@color/indian_jersey_saffron"
                 android:gravity="center">
 
-                <TextView
+                <View
                     android:id="@+id/top_info_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
-                    android:layout_marginStart="@dimen/margin_10"
-                    android:gravity="left|center_horizontal"
-                    android:text="IPL 20201 - T20" />
+                 />
 
-                <TextView
-                    android:id="@+id/top_info_contest_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginEnd="@dimen/margin_10"
-                    android:gravity="right|center_horizontal"
-                    android:text="36 Contests"/>
             </RelativeLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:layout_marginBottom="@dimen/margin_10"
+                android:layout_marginTop="@dimen/margin_20"
                 android:orientation="vertical"
                 android:layout_above="@+id/layout_btns">
                 <TextView
@@ -57,11 +47,15 @@
                     android:textSize="20dp"
                     android:text="KKR vs MI"/>
                 <TextView
-                    android:id="@+id/tv_time_remaining"
+                    android:id="@+id/tv_live"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="20 hours"/>
+                    android:layout_marginTop="@dimen/margin_10"
+                    android:textSize="20dp"
+                    android:text="Live"
+                    android:textStyle="bold"
+                    android:textColor="@color/live_color_red"/>
 
             </LinearLayout>
 
@@ -87,58 +81,12 @@
                 android:layout_marginBottom="@dimen/margin_10"
                 android:src="@drawable/mumbai_indians"/>
 
-            <LinearLayout
-                android:id="@+id/layout_btns"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/size_60"
-                android:layout_above="@+id/bottom_info_text"
-                android:layout_marginStart="@dimen/margin_10"
-                android:layout_marginEnd="@dimen/margin_10"
-                android:orientation="horizontal"
-                android:baselineAligned="false"
-                android:weightSum="3">
-
-                <Button
-                    android:id="@+id/btn_create_team"
-                    android:layout_width="0dp"
-                    android:layout_height="40dp"
-                    android:layout_weight="1"
-                    android:layout_margin="@dimen/margin_10"
-                    android:background="@drawable/button_style"
-                    android:text="@string/create_team"
-                    android:textColor="@android:color/white" />
-
-                <Button
-                    android:id="@+id/btn_join"
-                    android:layout_width="0dp"
-                    android:layout_height="40dp"
-                    android:layout_margin="@dimen/margin_10"
-                    android:layout_weight="1"
-                    android:background="@drawable/button_style"
-                    android:text="@string/join_tournament"
-                    android:textColor="@android:color/white" />
-
-                <Button
-                    android:id="@+id/btn_my_team"
-                    android:layout_width="0dp"
-                    android:layout_height="40dp"
-                    android:layout_margin="@dimen/margin_10"
-                    android:layout_weight="1"
-                    android:background="@drawable/button_style"
-                    android:text="@string/my_team"
-                    android:textColor="@android:color/white" />
-
-            </LinearLayout>
-
-            <TextView
+            <View
                 android:id="@+id/bottom_info_text"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/card_bottom"
                 android:layout_alignParentBottom="true"
-                android:paddingStart="@dimen/margin_10"
-                android:background="@color/indian_jersey_saffron"
-                android:gravity="left|center"
-                android:text="Total amount Rs 50 Lakhs" />
+                android:background="@color/indian_jersey_saffron"/>
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 </LinearLayout>

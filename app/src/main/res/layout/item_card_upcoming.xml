@@ -87,49 +87,6 @@
                 android:layout_marginBottom="@dimen/margin_10"
                 android:src="@drawable/mumbai_indians"/>
 
-            <LinearLayout
-                android:id="@+id/layout_btns"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/size_60"
-                android:layout_above="@+id/bottom_info_text"
-                android:layout_marginStart="@dimen/margin_10"
-                android:layout_marginEnd="@dimen/margin_10"
-                android:orientation="horizontal"
-                android:baselineAligned="false"
-                android:weightSum="3">
-
-                <Button
-                    android:id="@+id/btn_create_team"
-                    android:layout_width="0dp"
-                    android:layout_height="40dp"
-                    android:layout_weight="1"
-                    android:layout_margin="@dimen/margin_10"
-                    android:background="@drawable/button_style"
-                    android:text="@string/create_team"
-                    android:textColor="@android:color/white" />
-
-                <Button
-                    android:id="@+id/btn_join"
-                    android:layout_width="0dp"
-                    android:layout_height="40dp"
-                    android:layout_margin="@dimen/margin_10"
-                    android:layout_weight="1"
-                    android:background="@drawable/button_style"
-                    android:text="@string/join_tournament"
-                    android:textColor="@android:color/white" />
-
-                <Button
-                    android:id="@+id/btn_my_team"
-                    android:layout_width="0dp"
-                    android:layout_height="40dp"
-                    android:layout_margin="@dimen/margin_10"
-                    android:layout_weight="1"
-                    android:background="@drawable/button_style"
-                    android:text="@string/my_team"
-                    android:textColor="@android:color/white" />
-
-            </LinearLayout>
-
             <TextView
                 android:id="@+id/bottom_info_text"
                 android:layout_width="match_parent"

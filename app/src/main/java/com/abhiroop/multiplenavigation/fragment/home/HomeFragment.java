@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.abhiroop.multiplenavigation.R;
+import com.abhiroop.multiplenavigation.activity.MainActivity;
 
 public class HomeFragment extends Fragment {
 
@@ -30,6 +31,7 @@ public class HomeFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+        ((MainActivity)getActivity()).showHideAdBanner(true);
         mViewModel =
                 new ViewModelProvider(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.home_fragment, container, false);

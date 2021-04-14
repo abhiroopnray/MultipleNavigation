@@ -3,6 +3,7 @@ package com.abhiroop.multiplenavigation.adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -11,6 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.abhiroop.multiplenavigation.R;
 
 public class BannerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
+
+    private int[] banners = {R.drawable.ipl_01, R.drawable.ipl_02, R.drawable.ipl_03, R.drawable.ipl_04,R.drawable.ipl_05};
 
     @NonNull
     @Override
@@ -23,19 +26,20 @@ public class BannerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
             ViewHolder viewHolder = (ViewHolder)holder;
-            viewHolder.textView.setText("Some Text" + position);
+            ((ViewHolder) holder).imageView.setImageResource(banners[position]);
+
     }
 
     @Override
     public int getItemCount() {
-        return 5;
+        return banners.length;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView textView;
+        public ImageView imageView;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            textView = itemView.findViewById(R.id.item_recycler_banner);
+            imageView = itemView.findViewById(R.id.item_recycler_banner);
         }
     }
 }

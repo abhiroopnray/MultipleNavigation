@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
     private boolean isDrawerOpen;
     private FragmentManager fragmentManager;
+    private RelativeLayout bannerLayout;
     private BannerAdapter bannerAdapter;
     private RecyclerView recyclerView;
     private final static int BANNER_SCROLL_TIME = 2000;
@@ -60,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setUpBanner() {
-        RelativeLayout bannerLayout = findViewById(R.id.banner_layout);
+        bannerLayout = findViewById(R.id.banner_layout);
         recyclerView = bannerLayout.findViewById(R.id.recyclerview_banner);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this) {
             @Override
@@ -102,23 +103,37 @@ public class MainActivity extends AppCompatActivity {
                 switch (id) {
                     case R.id.navigation_home:
                         loadFragment(MultipleNavigationConstants.HOME_FRAGMENT);
+                        showHideAdBanner(true);
                         return true;
                     case R.id.navigation_tournaments:
                         loadFragment(MultipleNavigationConstants.TOURNAMENT_FRAGMENT);
+                        showHideAdBanner(false);
                         return true;
                     case R.id.navigation_my_matches:
                         loadFragment(MultipleNavigationConstants.MY_MATCHES_FRAGMENTS);
+                        showHideAdBanner(false);
                         return true;
                     case R.id.navigation_notification:
                         loadFragment(MultipleNavigationConstants.NOTIFICATION_FRAGMENTS);
+                        showHideAdBanner(false);
                         return true;
                     case R.id.navigation_settings:
                         loadFragment(MultipleNavigationConstants.SETTINGS_FRAGMENTS);
+                        showHideAdBanner(false);
                         return true;
                 }
                 return true;
             }
         });
+    }
+
+    public void showHideAdBanner(boolean state){
+        if(state){
+            bannerLayout.setVisibility(View.VISIBLE);
+        }else{
+            bannerLayout.setVisibility(View.GONE);
+        }
+
     }
 
     private void setUpToolBar() {

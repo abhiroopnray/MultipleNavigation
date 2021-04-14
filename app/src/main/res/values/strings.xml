@@ -13,4 +13,11 @@
     <string name="create_team">Create Team</string>
     <string name="join_tournament">Join </string>
     <string name="my_team">My Team</string>
+    <string name="upcoming">Upcoming</string>
+    <string name="live">Live</string>
+    <string name="past">Past</string>
+    <string name="wicket_keeper">Wicket Keeper</string>
+    <string name="batsman">Batsman</string>
+    <string name="all_rounder">All Rounder</string>
+    <string name="bowler">Bowler</string>
 </resources>
