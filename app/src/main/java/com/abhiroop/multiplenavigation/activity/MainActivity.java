@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private final static int BANNER_SCROLL_TIME = 2000;
     private int count = 0;
+    private boolean doubleBackToExitPressedOnce = false;;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -213,54 +214,66 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             case R.id.option_wallet:
                 FragmentManager fragmentManager = getSupportFragmentManager();
-                fragmentManager.beginTransaction().replace(R.id.frame, new WalletFragment(), MultipleNavigationConstants.WALLET_FRAGMENT);
-                fragmentManager.beginTransaction().commit();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.frame, new WalletFragment(), MultipleNavigationConstants.WALLET_FRAGMENT);
+                fragmentTransaction.addToBackStack(MultipleNavigationConstants.WALLET_FRAGMENT);
+                fragmentTransaction.commit();
+                showHideAdBanner(false);
                 return true;
         }
         return true;
     }
-
     private void loadFragment(String tag) {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         switch (tag) {
             case MultipleNavigationConstants.HOME_FRAGMENT:
                 fragmentTransaction.replace(R.id.frame, new HomeFragment(), tag);
+                fragmentTransaction.addToBackStack(tag);
                 fragmentTransaction.commit();
                 break;
             case MultipleNavigationConstants.MY_MATCHES_FRAGMENTS:
                 fragmentTransaction.replace(R.id.frame, new MyMatchesFragment(), tag);
+                fragmentTransaction.addToBackStack(tag);
                 fragmentTransaction.commit();
                 break;
             case MultipleNavigationConstants.NOTIFICATION_FRAGMENTS:
                 fragmentTransaction.replace(R.id.frame, new NotificationFragment(), tag);
+                fragmentTransaction.addToBackStack(tag);
                 fragmentTransaction.commit();
                 break;
             case MultipleNavigationConstants.SETTINGS_FRAGMENTS:
                 fragmentTransaction.replace(R.id.frame, new SettingsFragment(), tag);
+                fragmentTransaction.addToBackStack(tag);
                 fragmentTransaction.commit();
                 break;
             case MultipleNavigationConstants.TOURNAMENT_FRAGMENT:
                 fragmentTransaction.replace(R.id.frame, new TournamentsFragments(), tag);
+                fragmentTransaction.addToBackStack(tag);
                 fragmentTransaction.commit();
                 break;
             case MultipleNavigationConstants.MY_PROFILE:
                 fragmentTransaction.replace(R.id.frame, new MyProfileFragment(), tag);
+                fragmentTransaction.addToBackStack(tag);
                 fragmentTransaction.commit();
                 break;
             case MultipleNavigationConstants.ABOUT_FRAGMENT:
                 fragmentTransaction.replace(R.id.frame, new AboutFragment(), tag);
+                fragmentTransaction.addToBackStack(tag);
                 fragmentTransaction.commit();
                 break;
             case MultipleNavigationConstants.RECORDS_FRAGMENT:
                 fragmentTransaction.replace(R.id.frame, new RecordsFragment(), tag);
+                fragmentTransaction.addToBackStack(tag);
                 fragmentTransaction.commit();
                 break;
             case MultipleNavigationConstants.WALLET_FRAGMENT:
                 fragmentTransaction.replace(R.id.frame, new WalletFragment(), tag);
+                fragmentTransaction.addToBackStack(tag);
                 fragmentTransaction.commit();
                 break;
             case MultipleNavigationConstants.TRANSACTION_FRAGMENT:
                 fragmentTransaction.replace(R.id.frame, new TransactionFragment(), tag);
+                fragmentTransaction.addToBackStack(tag);
                 fragmentTransaction.commit();
                 closeDrawer();
                 break;
@@ -280,6 +293,25 @@ public class MainActivity extends AppCompatActivity {
             closeDrawer();
             return;
         }
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        if(fragmentManager.getBackStackEntryCount() > 1){
+            fragmentManager.popBackStack();
+        }else if (!doubleBackToExitPressedOnce) {
+            this.doubleBackToExitPressedOnce = true;
+            Toast.makeText(this,"Please click BACK again to exit.", Toast.LENGTH_SHORT).show();
+
+            new Handler().postDelayed(new Runnable() {
+
+                @Override
+                public void run() {
+                    doubleBackToExitPressedOnce = false;
+                }
+            }, 3000);
+        } else {
+            super.onBackPressed();
+            return;
+        }
+
     }
 }
 

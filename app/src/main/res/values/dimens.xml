@@ -20,4 +20,5 @@
     <dimen name="app_bar_height">180dp</dimen>
     <dimen name="text_margin">16dp</dimen>
     <dimen name="size_100">100dp</dimen>
+    <dimen name="margin_50">50dp</dimen>
 </resources>
