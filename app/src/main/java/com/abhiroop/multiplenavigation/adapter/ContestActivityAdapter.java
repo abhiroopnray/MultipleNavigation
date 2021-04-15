@@ -1,11 +1,14 @@
 package com.abhiroop.multiplenavigation.adapter;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.abhiroop.multiplenavigation.R;
 
 public class ContestActivityAdapter extends RecyclerView.Adapter<ContestActivityAdapter.ViewHolder> {
 
@@ -18,7 +21,9 @@ public class ContestActivityAdapter extends RecyclerView.Adapter<ContestActivity
     @NonNull
     @Override
     public ContestActivityAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+        View view = LayoutInflater.from(mContext).inflate(R.layout.item_card_contest, parent, false);
+        ViewHolder viewHolder = new ViewHolder(view);
+        return viewHolder;
     }
 
     @Override

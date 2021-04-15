@@ -1,6 +1,7 @@
 package com.abhiroop.multiplenavigation.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.abhiroop.multiplenavigation.R;
+import com.abhiroop.multiplenavigation.activity.ContestActivity;
 
 public class JoinContestAdapter extends RecyclerView.Adapter<JoinContestAdapter.ViewHolder> {
 
@@ -28,7 +30,13 @@ public class JoinContestAdapter extends RecyclerView.Adapter<JoinContestAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull JoinContestAdapter.ViewHolder holder, int position) {
-
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent (mContext, ContestActivity.class);
+                mContext.startActivity(intent);
+            }
+        });
     }
 
     @Override

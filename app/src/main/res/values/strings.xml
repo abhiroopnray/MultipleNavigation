@@ -118,4 +118,6 @@
     <string name="add_cash">Add Cash</string>
     <string name="wallet_info">You can spend your bonus amount fully beforespending your deposit or winning amount in those tournaments which have more than 25 participants.</string>
     <string name="wihdraw_cash">Withdraw Cash</string>
+    <string name="show_team">Show Team</string>
+    <string name="winning_breakuo">Winning Breakup</string>
 </resources>

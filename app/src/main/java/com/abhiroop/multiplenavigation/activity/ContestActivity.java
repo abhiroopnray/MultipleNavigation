@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 
 import com.abhiroop.multiplenavigation.R;
+import com.abhiroop.multiplenavigation.adapter.ContestActivityAdapter;
 import com.abhiroop.multiplenavigation.adapter.JoinContestAdapter;
 
 public class ContestActivity extends AppCompatActivity {
@@ -32,7 +33,7 @@ public class ContestActivity extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setHasFixedSize(true);
-        JoinContestAdapter adapter = new JoinContestAdapter(this);
+        ContestActivityAdapter adapter = new ContestActivityAdapter(this);
         recyclerView.setAdapter(adapter);
     }
 }
