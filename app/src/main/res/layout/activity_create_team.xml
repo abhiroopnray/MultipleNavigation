@@ -60,62 +60,66 @@
                         android:layout_height="wrap_content"
                         android:text="50/100" />
                 </LinearLayout>
-                 <RelativeLayout
-                     android:layout_width="@dimen/size_200"
-                     android:layout_height="wrap_content"
-                     android:layout_centerInParent="true">
-                     <ImageView
-                         android:id="@+id/iv_home_team"
-                         android:layout_width="@dimen/size_50"
-                         android:layout_height="@dimen/size_50"
-                         android:layout_alignParentStart="true"
-                         android:src="@drawable/kkr"/>
-                     <TextView
-                         android:id="@+id/tv_home_team_name"
-                         android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
-                         android:layout_alignTop="@+id/iv_home_team"
-                         android:layout_toEndOf="@+id/iv_home_team"
-                         android:layout_marginTop="@dimen/margin_10"
-                         android:text="KKR"/>
 
-                     <TextView
-                         android:id="@+id/tv_home_team_player_chosen"
-                         android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
-                         android:layout_below="@+id/tv_home_team_name"
-                         android:layout_toEndOf="@+id/iv_home_team"
-                         android:text="6"/>
+                <RelativeLayout
+                    android:layout_width="@dimen/size_200"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true">
 
-                     <ImageView
-                         android:id="@+id/iv_away_team"
-                         android:layout_width="@dimen/size_50"
-                         android:layout_height="@dimen/size_50"
-                         android:layout_alignParentEnd="true"
-                         android:src="@drawable/mumbai_indians"/>
-                     <TextView
-                         android:id="@+id/tv_away_team_name"
-                         android:layout_width="@dimen/size_60"
-                         android:layout_height="wrap_content"
-                         android:layout_alignTop="@+id/iv_away_team"
-                         android:layout_toStartOf="@+id/iv_away_team"
-                         android:gravity="end"
-                         android:layout_marginTop="@dimen/margin_10"
-                         android:layout_marginEnd="@dimen/margin_10"
-                         android:text="MI"/>
+                    <ImageView
+                        android:id="@+id/iv_home_team"
+                        android:layout_width="@dimen/size_50"
+                        android:layout_height="@dimen/size_50"
+                        android:layout_alignParentStart="true"
+                        android:src="@drawable/kkr" />
 
-                     <TextView
-                         android:id="@+id/tv_away_team_player_chosen"
-                         android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
-                         android:layout_below="@+id/tv_away_team_name"
-                         android:layout_toStartOf="@+id/iv_away_team"
-                         android:layout_marginEnd="@dimen/margin_10"
-                         android:text="5"/>
+                    <TextView
+                        android:id="@+id/tv_home_team_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/iv_home_team"
+                        android:layout_marginTop="@dimen/margin_10"
+                        android:layout_toEndOf="@+id/iv_home_team"
+                        android:text="KKR" />
+
+                    <TextView
+                        android:id="@+id/tv_home_team_player_chosen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_home_team_name"
+                        android:layout_toEndOf="@+id/iv_home_team"
+                        android:text="6" />
+
+                    <ImageView
+                        android:id="@+id/iv_away_team"
+                        android:layout_width="@dimen/size_50"
+                        android:layout_height="@dimen/size_50"
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/mumbai_indians" />
+
+                    <TextView
+                        android:id="@+id/tv_away_team_name"
+                        android:layout_width="@dimen/size_60"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/iv_away_team"
+                        android:layout_marginTop="@dimen/margin_10"
+                        android:layout_marginEnd="@dimen/margin_10"
+                        android:layout_toStartOf="@+id/iv_away_team"
+                        android:gravity="end"
+                        android:text="MI" />
+
+                    <TextView
+                        android:id="@+id/tv_away_team_player_chosen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_away_team_name"
+                        android:layout_marginEnd="@dimen/margin_10"
+                        android:layout_toStartOf="@+id/iv_away_team"
+                        android:text="5" />
 
 
+                </RelativeLayout>
 
-                 </RelativeLayout>
                 <LinearLayout
                     android:id="@+id/layout_players"
                     android:layout_width="wrap_content"
@@ -151,10 +155,17 @@
         app:tabGravity="fill"
         app:tabMode="fixed" />
 
+    <include
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:id="@+id/layout_player_selection"
+        layout="@layout/player_selection_header"
+        android:layout_below="@+id/tab_layout" />
+
     <androidx.viewpager2.widget.ViewPager2 xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/tab_layout"
+        android:layout_below="@+id/layout_player_selection"
         app:tabMode="scrollable" />
 </RelativeLayout>
