@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MultipleNavigation">
-        <activity android:name=".activity.MyProfile"></activity>
+        <activity android:name=".activity.ContestActivity"></activity>
+        <activity android:name=".activity.JoinContestActivity" />
+        <activity android:name=".activity.MyProfile" />
         <activity android:name=".activity.CreateTeamActivity" />
         <activity android:name=".activity.MainActivity">
             <intent-filter>

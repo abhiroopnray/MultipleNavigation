@@ -22,4 +22,6 @@
     <dimen name="size_100">100dp</dimen>
     <dimen name="margin_50">50dp</dimen>
     <dimen name="size_40">40dp</dimen>
+    <dimen name="size_5">5dp</dimen>
+    <dimen name="size_80">80dp</dimen>
 </resources>
