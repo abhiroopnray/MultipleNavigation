@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/indian_jersey_blue"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragment.tournament.TournamentsFragments">
 
@@ -19,6 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/tab_layout"
+        android:background="@color/indian_jersey_blue"
         app:tabMode="fixed" />
 
 </RelativeLayout>

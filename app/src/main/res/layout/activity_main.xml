@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/indian_jersey_blue"
     android:layout_height="match_parent"
     android:layout_width="match_parent">
 <androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -47,7 +48,7 @@
             android:layout_alignParentBottom="true"
             android:layout_marginStart="0dp"
             android:layout_marginEnd="0dp"
-            android:background="@color/purple_500"
+            android:background="@color/indian_jersey_blue_old"
             android:foregroundGravity="bottom"
             app:itemIconTint="@color/white"
             app:itemTextColor="@color/white"
@@ -59,6 +60,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="left"
+        android:background="@color/indian_jersey_blue"
         app:headerLayout="@layout/navigation_drawer_head"
         app:menu="@menu/nav_items" />
 

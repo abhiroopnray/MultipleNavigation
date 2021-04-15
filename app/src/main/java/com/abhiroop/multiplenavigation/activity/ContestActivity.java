@@ -6,12 +6,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 
 import com.abhiroop.multiplenavigation.R;
 import com.abhiroop.multiplenavigation.adapter.ContestActivityAdapter;
 import com.abhiroop.multiplenavigation.adapter.JoinContestAdapter;
 
-public class ContestActivity extends AppCompatActivity {
+public class ContestActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
