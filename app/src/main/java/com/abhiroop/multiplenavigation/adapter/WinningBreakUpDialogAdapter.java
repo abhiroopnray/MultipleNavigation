@@ -42,7 +42,7 @@ public class WinningBreakUpDialogAdapter extends RecyclerView.Adapter<WinningBre
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tv_rank = itemView.findViewById(R.id.tv_rank);
-            tv_winning_break_up = itemView.findViewById(R.id.tv_winning_breakup);
+            tv_winning_break_up = itemView.findViewById(R.id.tv_winning_breakup_amount);
         }
     }
 }

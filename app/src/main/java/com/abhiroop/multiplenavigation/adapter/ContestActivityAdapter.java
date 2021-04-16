@@ -3,6 +3,7 @@ package com.abhiroop.multiplenavigation.adapter;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.abhiroop.multiplenavigation.R;
 import com.abhiroop.multiplenavigation.activity.ContestActivity;
+import com.abhiroop.multiplenavigation.activity.SelectTeamToJoinActivity;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 
@@ -36,6 +38,7 @@ public class ContestActivityAdapter extends RecyclerView.Adapter<ContestActivity
     @Override
     public void onBindViewHolder(@NonNull ContestActivityAdapter.ViewHolder holder, int position) {
           holder.btn_winning_breakup.setOnClickListener(this);
+          holder.btn_join.setOnClickListener(this);
     }
 
     @Override
@@ -49,6 +52,10 @@ public class ContestActivityAdapter extends RecyclerView.Adapter<ContestActivity
         switch (id){
             case R.id.btn_winning_breakup:
                 openWinningBreakUpDialog();
+                break;
+            case R.id.btn_join:
+                Intent intent = new Intent(mContext, SelectTeamToJoinActivity.class);
+                mContext.startActivity(intent);
                 break;
         }
     }
@@ -69,10 +76,12 @@ public class ContestActivityAdapter extends RecyclerView.Adapter<ContestActivity
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public Button btn_winning_breakup;
+        public Button btn_winning_breakup, btn_show_participants, btn_join;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             btn_winning_breakup = itemView.findViewById(R.id.btn_winning_breakup);
+            btn_show_participants = itemView.findViewById(R.id.btn_show_participants);
+            btn_join = itemView.findViewById(R.id.btn_join);
         }
     }
 }

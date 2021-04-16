@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.SelectTeamToJoinActivity">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/app_toolbar"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_80"
+        android:text="Starts in 5 Hours"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_no_team_created"
+        android:layout_width="@dimen/size_250"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_100"
+        android:layout_marginBottom="24dp"
+        android:text="No team found. Still time to create. Please create a team first"
+        app:layout_constraintBottom_toTopOf="@+id/btn_create_team"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+
+        app:layout_constraintTop_toBottomOf="@+id/tv" />
+
+    <Button
+        android:id="@+id/btn_create_team"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/margin_30"
+        android:background="@color/indian_jersey_blue_old"
+        android:padding="@dimen/margin_10"
+        android:text="Create Team"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="@+id/tv_no_team_created"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/tv_no_team_created"
+        app:layout_constraintTop_toBottomOf="@+id/tv_no_team_created" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

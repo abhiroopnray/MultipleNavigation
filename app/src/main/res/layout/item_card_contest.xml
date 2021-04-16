@@ -87,13 +87,13 @@
                 android:weightSum="3">
 
                 <Button
-                    android:id="@+id/btn_create_team"
+                    android:id="@+id/btn_show_participants"
                     android:layout_width="0dp"
                     android:layout_height="40dp"
                     android:layout_weight="1"
                     android:layout_margin="@dimen/margin_10"
                     android:background="@drawable/button_style"
-                    android:text="@string/show_team"
+                    android:text="@string/show_participants"
                     android:textAllCaps="false"
                     android:textColor="@android:color/white" />
 
