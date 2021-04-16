@@ -1,16 +1,23 @@
 package com.abhiroop.multiplenavigation.adapter;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.abhiroop.multiplenavigation.R;
+import com.abhiroop.multiplenavigation.activity.ContestActivity;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
-public class ContestActivityAdapter extends RecyclerView.Adapter<ContestActivityAdapter.ViewHolder> {
+
+public class ContestActivityAdapter extends RecyclerView.Adapter<ContestActivityAdapter.ViewHolder> implements View.OnClickListener {
 
     private Context mContext;
 
@@ -28,7 +35,7 @@ public class ContestActivityAdapter extends RecyclerView.Adapter<ContestActivity
 
     @Override
     public void onBindViewHolder(@NonNull ContestActivityAdapter.ViewHolder holder, int position) {
-
+          holder.btn_winning_breakup.setOnClickListener(this);
     }
 
     @Override
@@ -36,9 +43,36 @@ public class ContestActivityAdapter extends RecyclerView.Adapter<ContestActivity
         return 6;
     }
 
+    @Override
+    public void onClick(View view) {
+        int id = view.getId();
+        switch (id){
+            case R.id.btn_winning_breakup:
+                openWinningBreakUpDialog();
+                break;
+        }
+    }
+
+    private void openWinningBreakUpDialog() {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
+        View view =LayoutInflater.from(mContext).inflate(R.layout.layout_winning_break_up, null);
+        builder.setView(view);
+        RecyclerView recyclerView = view.findViewById(R.id.recycler);
+        recyclerView.setLayoutManager(new LinearLayoutManager(mContext));
+        recyclerView.setHasFixedSize(true);
+        WinningBreakUpDialogAdapter adapter = new WinningBreakUpDialogAdapter(mContext);
+        recyclerView.setAdapter(adapter);
+        AlertDialog dialog = builder.create();
+        dialog.setCancelable(true);
+        dialog.show();
+    }
+
     public class ViewHolder extends RecyclerView.ViewHolder {
+        public Button btn_winning_breakup;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            btn_winning_breakup = itemView.findViewById(R.id.btn_winning_breakup);
         }
     }
 }
