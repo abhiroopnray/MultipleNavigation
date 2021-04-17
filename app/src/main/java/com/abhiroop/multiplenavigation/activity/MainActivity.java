@@ -292,7 +292,11 @@ public class MainActivity extends AppCompatActivity {
         }
         FragmentManager fragmentManager = getSupportFragmentManager();
         if(fragmentManager.getBackStackEntryCount() > 1){
-            fragmentManager.popBackStack();
+            //fragmentManager.popBackStack();
+            for(int i = 0; i < fragmentManager.getBackStackEntryCount(); ++i) {
+                fragmentManager.popBackStack();
+                loadFragment(MultipleNavigationConstants.HOME_FRAGMENT);
+            }
         }else if (!doubleBackToExitPressedOnce) {
             this.doubleBackToExitPressedOnce = true;
             Toast.makeText(this,"Please click BACK again to exit.", Toast.LENGTH_SHORT).show();
