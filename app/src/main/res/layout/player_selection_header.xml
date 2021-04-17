@@ -9,6 +9,7 @@
     android:paddingStart="@dimen/margin_20"
     android:paddingBottom="@dimen/margin_10"
     android:paddingEnd="@dimen/size_50"
+    app:layout_constraintHorizontal_weight="1"
     android:background="@color/indian_jersey_green">
 
     <TextView
@@ -16,6 +17,7 @@
         android:layout_width="89dp"
         android:layout_height="wrap_content"
         android:text="Player's Name"
+        app:layout_constraintHorizontal_weight="1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,6 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:text="Points"
+        app:layout_constraintHorizontal_weight="1"
         app:layout_constraintEnd_toStartOf="@+id/tv_credits"
         app:layout_constraintStart_toEndOf="@+id/tv_player_name"
         app:layout_constraintTop_toTopOf="parent" />
@@ -37,6 +40,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:text="Credit"
+        app:layout_constraintHorizontal_weight="1"
         app:layout_constraintBaseline_toBaselineOf="@+id/tv_player_point"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tv_player_point" />

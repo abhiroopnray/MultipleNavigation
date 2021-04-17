@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MultipleNavigation">
-        <activity android:name=".activity.SelectTeamToJoinActivity"></activity>
+        <activity android:name=".activity.PlayerStatusActivity"></activity>
+        <activity android:name=".activity.ShowParticipantsActivity" />
+        <activity android:name=".activity.SelectTeamToJoinActivity" />
         <activity android:name=".activity.BaseActivity" />
         <activity android:name=".activity.ContestActivity" />
         <activity android:name=".activity.JoinContestActivity" />

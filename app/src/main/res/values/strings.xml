@@ -119,8 +119,27 @@
     <string name="wallet_info">You can spend your bonus amount fully beforespending your deposit or winning amount in those tournaments which have more than 25 participants.</string>
     <string name="wihdraw_cash">Withdraw Cash</string>
     <string name="show_team">Show Team</string>
-    <string name="winning_breakuo">Winning Breakup</string>
+    <string name="winning_breakup">Winning Breakup</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="show_participants">Show Participants</string>
+    <string name="player_status">Player Status</string>
+    <string name="search">Search</string>
+    <string name="player_credit">Credit</string>
+
+    <string name="about_headine_01">Welcome to CaptainX</string>
+    <string name="about_headine_02">Why Captain </string>
+    <string name="about_headine_03">About the team</string>
+    <string name="about_headine_04">Work Culture</string>
+    <string name="about_headine_05">Our Mission and Vision</string>
+    <string name="about_headine_06">Contact</string>
+    <string name="about_headine_07">Disclaimer</string>
+
+    <string name="about_desc_01">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+    <string name="about_desc_02">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </string>
+    <string name="about_desc_03">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </string>
+    <string name="about_desc_04">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</string>
+    <string name="about_desc_05">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </string>
+    <string name="about_desc_06">Contact us at support@saptainscc.xom</string>
+    <string name="about_desc_07">Lorem is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
 </resources>

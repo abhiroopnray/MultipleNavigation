@@ -152,9 +152,6 @@ public class MainActivity extends AppCompatActivity {
                 isDrawerOpen = true;
             }
         });
-        /*ActionBar actionbar = getSupportActionBar();
-        actionbar.setHomeAsUpIndicator(R.drawable.ic_menu_white);
-        actionbar.setDisplayHomeAsUpEnabled(true);*/
     }
 
 
@@ -194,7 +191,7 @@ public class MainActivity extends AppCompatActivity {
                         closeDrawer();
                         return true;
                     case R.id.transaction:
-                        loadFragment(MultipleNavigationConstants.TOURNAMENT_FRAGMENT);
+                        loadFragment(MultipleNavigationConstants.TRANSACTION_FRAGMENT);
                         showHideAdBanner(false);
                         closeDrawer();
                         return true;

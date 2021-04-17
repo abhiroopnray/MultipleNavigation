@@ -1,11 +1,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/margin_5">
     <!-- A CardView that contains a TextView -->
-    <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    <androidx.cardview.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:id="@+id/card_view"
         android:layout_width="match_parent"
         android:layout_height="@dimen/margin_200"
@@ -115,7 +115,7 @@
                     android:layout_margin="@dimen/margin_10"
                     android:layout_weight="1"
                     android:background="@drawable/button_style"
-                    android:text="@string/winning_breakuo"
+                    android:text="@string/winning_breakup"
                     android:textAllCaps="false"
                     android:textColor="@android:color/white" />
 

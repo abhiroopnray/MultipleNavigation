@@ -1,15 +1,15 @@
 package com.abhiroop.multiplenavigation.pojo;
 
-public class PlayerList {
-    private String playrName;
+public class PlayerStatusList {
+    private String playerName;
     private int playerPoints;
 
-    public String getPlayrName() {
-        return playrName;
+    public String getPlayerName() {
+        return playerName;
     }
 
-    public void setPlayrName(String playrName) {
-        this.playrName = playrName;
+    public void setPlayerName(String playerName) {
+        this.playerName = playerName;
     }
 
     public int getPlayerPoints() {
