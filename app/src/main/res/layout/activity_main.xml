@@ -62,6 +62,7 @@
         android:layout_gravity="left"
         android:background="@color/indian_jersey_blue"
         app:headerLayout="@layout/navigation_drawer_head"
+        app:itemTextColor="@android:color/white"
         app:menu="@menu/nav_items" />
 
 </androidx.drawerlayout.widget.DrawerLayout>
