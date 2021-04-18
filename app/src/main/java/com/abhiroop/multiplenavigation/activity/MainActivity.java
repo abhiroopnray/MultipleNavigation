@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -51,7 +52,11 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private final static int BANNER_SCROLL_TIME = 2000;
     private int count = 0;
-    private boolean doubleBackToExitPressedOnce = false;;
+    private int backPressed = 0;
+    private boolean doubleBackToExitPressedOnce = false;
+    private BottomNavigationView bottomNavigationView;
+    private FragmentTransaction fragmentTransaction;
+    private final static int BACK_PRESS_DURATION = 1000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,12 +104,12 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void setUpBottomNavigationBar() {
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav_view);
+        bottomNavigationView = findViewById(R.id.bottom_nav_view);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int id = item.getItemId();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction = fragmentManager.beginTransaction();
                 switch (id) {
                     case R.id.navigation_home:
                         loadFragment(MultipleNavigationConstants.HOME_FRAGMENT);
@@ -127,15 +132,15 @@ public class MainActivity extends AppCompatActivity {
                         showHideAdBanner(false);
                         return true;
                 }
-                return true;
+                return false;
             }
         });
     }
 
-    public void showHideAdBanner(boolean state){
-        if(state){
+    public void showHideAdBanner(boolean state) {
+        if (state) {
             bannerLayout.setVisibility(View.VISIBLE);
-        }else{
+        } else {
             bannerLayout.setVisibility(View.GONE);
         }
 
@@ -210,36 +215,36 @@ public class MainActivity extends AppCompatActivity {
                 isDrawerOpen = true;
                 return true;
             case R.id.option_wallet:
-                FragmentManager fragmentManager = getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.frame, new WalletFragment(), MultipleNavigationConstants.WALLET_FRAGMENT);
-                fragmentTransaction.addToBackStack(MultipleNavigationConstants.WALLET_FRAGMENT);
                 fragmentTransaction.commit();
                 showHideAdBanner(false);
                 return true;
         }
         return true;
     }
+
     private void loadFragment(String tag) {
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        /*FragmentTransaction*/
+        fragmentTransaction = fragmentManager.beginTransaction();
         switch (tag) {
             case MultipleNavigationConstants.HOME_FRAGMENT:
-                fragmentTransaction.replace(R.id.frame, new HomeFragment(), tag);
+                fragmentTransaction.replace(R.id.frame, new HomeFragment(), null);
                 fragmentTransaction.addToBackStack(tag);
                 fragmentTransaction.commit();
                 break;
             case MultipleNavigationConstants.MY_MATCHES_FRAGMENTS:
-                fragmentTransaction.replace(R.id.frame, new MyMatchesFragment(), tag);
+                fragmentTransaction.replace(R.id.frame, new MyMatchesFragment(), null);
                 fragmentTransaction.addToBackStack(tag);
                 fragmentTransaction.commit();
                 break;
             case MultipleNavigationConstants.NOTIFICATION_FRAGMENTS:
-                fragmentTransaction.replace(R.id.frame, new NotificationFragment(), tag);
+                fragmentTransaction.replace(R.id.frame, new NotificationFragment(), null);
                 fragmentTransaction.addToBackStack(tag);
                 fragmentTransaction.commit();
                 break;
             case MultipleNavigationConstants.SETTINGS_FRAGMENTS:
-                fragmentTransaction.replace(R.id.frame, new SettingsFragment(), tag);
+                fragmentTransaction.replace(R.id.frame, new SettingsFragment(), null);
                 fragmentTransaction.addToBackStack(tag);
                 fragmentTransaction.commit();
                 break;
@@ -250,27 +255,26 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case MultipleNavigationConstants.MY_PROFILE:
                 fragmentTransaction.replace(R.id.frame, new MyProfileFragment(), tag);
-                fragmentTransaction.addToBackStack(tag);
+                // fragmentTransaction.addToBackStack(tag);
                 fragmentTransaction.commit();
                 break;
             case MultipleNavigationConstants.ABOUT_FRAGMENT:
-                fragmentTransaction.replace(R.id.frame, new AboutFragment(), tag);
-                fragmentTransaction.addToBackStack(tag);
+//                fragmentTransaction.addToBackStack(tag);
                 fragmentTransaction.commit();
                 break;
             case MultipleNavigationConstants.RECORDS_FRAGMENT:
                 fragmentTransaction.replace(R.id.frame, new RecordsFragment(), tag);
-                fragmentTransaction.addToBackStack(tag);
+                ///              fragmentTransaction.addToBackStack(tag);
                 fragmentTransaction.commit();
                 break;
             case MultipleNavigationConstants.WALLET_FRAGMENT:
                 fragmentTransaction.replace(R.id.frame, new WalletFragment(), tag);
-                fragmentTransaction.addToBackStack(tag);
+                //           fragmentTransaction.addToBackStack(tag);
                 fragmentTransaction.commit();
                 break;
             case MultipleNavigationConstants.TRANSACTION_FRAGMENT:
                 fragmentTransaction.replace(R.id.frame, new TransactionFragment(), tag);
-                fragmentTransaction.addToBackStack(tag);
+                //         fragmentTransaction.addToBackStack(tag);
                 fragmentTransaction.commit();
                 closeDrawer();
                 break;
@@ -284,35 +288,85 @@ public class MainActivity extends AppCompatActivity {
         isDrawerOpen = false;
     }
 
+    private void checkDoublePressBackButton() {
+        long startTime = System.currentTimeMillis();
+        long difference = System.currentTimeMillis() - startTime;
+        if (difference <= BACK_PRESS_DURATION) {
+            backPressed++;
+            if (backPressed == 1) {
+                /*Toast toast = new Toast(this);
+                toast.setText(R.string.press_again_to_exit);
+                toast.show();
+                toast.*/
+                Toast.makeText(this, R.string.press_again_to_exit, Toast.LENGTH_SHORT).show();
+            }
+
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    backPressed = 0;
+                }
+            }, BACK_PRESS_DURATION);
+        }
+    }
+
+    private void updateBottomNavigation(String presentFragment){
+        Log.d("Abhirpop", "Abhiroop tag : " + presentFragment);
+
+        /*if (presentFragment.equalsIgnoreCase("home_fragment")) {
+            Toast.makeText(this, presentFragment, Toast.LENGTH_SHORT).show();
+            //bottomNavigationView.setSelectedItemId(R.id.navigation_home);
+            bottomNavigationView.setSelected(true);
+        } else if (presentFragment.equalsIgnoreCase("my_matches_fragments")) {
+            Toast.makeText(this, presentFragment, Toast.LENGTH_SHORT).show();
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    bottomNavigationView.setSelectedItemId(R.id.navigation_my_matches);
+
+                }
+            });
+            //bottomNavigationView.setSelected(true);
+        } else if (presentFragment.equalsIgnoreCase("tournament_fragment")) {
+            Toast.makeText(this, presentFragment, Toast.LENGTH_SHORT).show();
+            bottomNavigationView.setSelectedItemId(R.id.navigation_tournaments);
+            //bottomNavigationView.setSelected(true);
+        } else if (presentFragment.equalsIgnoreCase("notification_fragments")) {
+            Toast.makeText(this, presentFragment, Toast.LENGTH_SHORT).show();
+            //bottomNavigationView.setSelectedItemId(R.id.navigation_notification);
+            //bottomNavigationView.setSelected(true);
+        } else if (presentFragment.equalsIgnoreCase("settings_fragments")) {
+            Toast.makeText(this, presentFragment, Toast.LENGTH_SHORT).show();
+            //bottomNavigationView.setSelectedItemId(R.id.navigation_settings);
+            //bottomNavigationView.setSelected(true);
+        }*/
+    }
     @Override
     public void onBackPressed() {
+
         if (isDrawerOpen) {
             closeDrawer();
             return;
-        }
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        if(fragmentManager.getBackStackEntryCount() > 1){
-            //fragmentManager.popBackStack();
-            for(int i = 0; i < fragmentManager.getBackStackEntryCount(); ++i) {
-                fragmentManager.popBackStack();
-                loadFragment(MultipleNavigationConstants.HOME_FRAGMENT);
+        }else{
+            checkDoublePressBackButton();
+            backPressed++;
+            if(backPressed == 2){
+                super.onBackPressed();
+                return;
             }
-        }else if (!doubleBackToExitPressedOnce) {
-            this.doubleBackToExitPressedOnce = true;
-            Toast.makeText(this,"Please click BACK again to exit.", Toast.LENGTH_SHORT).show();
-
-            new Handler().postDelayed(new Runnable() {
-
-                @Override
-                public void run() {
-                    doubleBackToExitPressedOnce = false;
-                }
-            }, 3000);
-        } else {
-            super.onBackPressed();
-            return;
         }
 
+        /*else if (fragmentManager.getBackStackEntryCount() > 1) {
+            getSupportFragmentManager().popBackStack();
+            Log.d("Abhiroop", "Abhiroop stack size: " + getSupportFragmentManager().getBackStackEntryCount());
+            String presentFragment = getSupportFragmentManager().getBackStackEntryAt(fragmentManager.getBackStackEntryCount() -1 ).getName();
+            updateBottomNavigation(presentFragment);
+
+            return;
+        }*/ /*else{
+            loadFragment(MultipleNavigationConstants.HOME_FRAGMENT);
+        }*/
     }
 }
+
 
