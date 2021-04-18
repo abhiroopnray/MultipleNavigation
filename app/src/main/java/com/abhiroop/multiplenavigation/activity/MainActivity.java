@@ -259,7 +259,8 @@ public class MainActivity extends AppCompatActivity {
                 fragmentTransaction.commit();
                 break;
             case MultipleNavigationConstants.ABOUT_FRAGMENT:
-//                fragmentTransaction.addToBackStack(tag);
+                fragmentTransaction.replace(R.id.frame, new AboutFragment(), tag);
+               fragmentTransaction.addToBackStack(tag);
                 fragmentTransaction.commit();
                 break;
             case MultipleNavigationConstants.RECORDS_FRAGMENT:
