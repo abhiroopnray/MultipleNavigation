@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
     private boolean doubleBackToExitPressedOnce = false;
     private BottomNavigationView bottomNavigationView;
     private FragmentTransaction fragmentTransaction;
-    private final static int BACK_PRESS_DURATION = 1000;
+    private final static int BACK_PRESS_DURATION = 2500;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -216,7 +216,7 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             case R.id.option_wallet:
                 fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.frame, new WalletFragment(), MultipleNavigationConstants.WALLET_FRAGMENT);
+                fragmentTransaction.replace(R.id.frame, new WalletFragment(this), MultipleNavigationConstants.WALLET_FRAGMENT);
                 fragmentTransaction.commit();
                 showHideAdBanner(false);
                 return true;
@@ -257,27 +257,31 @@ public class MainActivity extends AppCompatActivity {
                 fragmentTransaction.replace(R.id.frame, new MyProfileFragment(), tag);
                 // fragmentTransaction.addToBackStack(tag);
                 fragmentTransaction.commit();
+                showHideAdBanner(false);
                 break;
             case MultipleNavigationConstants.ABOUT_FRAGMENT:
                 fragmentTransaction.replace(R.id.frame, new AboutFragment(), tag);
                fragmentTransaction.addToBackStack(tag);
                 fragmentTransaction.commit();
+                showHideAdBanner(false);
                 break;
             case MultipleNavigationConstants.RECORDS_FRAGMENT:
-                fragmentTransaction.replace(R.id.frame, new RecordsFragment(), tag);
-                ///              fragmentTransaction.addToBackStack(tag);
+                fragmentTransaction.replace(R.id.frame, new RecordsFragment(this), tag);
+                fragmentTransaction.addToBackStack(tag);
                 fragmentTransaction.commit();
+                showHideAdBanner(false);
                 break;
             case MultipleNavigationConstants.WALLET_FRAGMENT:
-                fragmentTransaction.replace(R.id.frame, new WalletFragment(), tag);
-                //           fragmentTransaction.addToBackStack(tag);
+                fragmentTransaction.replace(R.id.frame, new WalletFragment(this), tag);
+                fragmentTransaction.addToBackStack(tag);
                 fragmentTransaction.commit();
+                showHideAdBanner(false);
                 break;
             case MultipleNavigationConstants.TRANSACTION_FRAGMENT:
-                fragmentTransaction.replace(R.id.frame, new TransactionFragment(), tag);
-                //         fragmentTransaction.addToBackStack(tag);
+                fragmentTransaction.replace(R.id.frame, new TransactionFragment(this), tag);
+                fragmentTransaction.addToBackStack(tag);
                 fragmentTransaction.commit();
-                closeDrawer();
+                showHideAdBanner(false);
                 break;
         }
 
@@ -286,6 +290,7 @@ public class MainActivity extends AppCompatActivity {
     private void closeDrawer() {
         if (isDrawerOpen)
             drawerLayout.closeDrawer(Gravity.LEFT);
+        showHideAdBanner(true);
         isDrawerOpen = false;
     }
 
@@ -293,12 +298,7 @@ public class MainActivity extends AppCompatActivity {
         long startTime = System.currentTimeMillis();
         long difference = System.currentTimeMillis() - startTime;
         if (difference <= BACK_PRESS_DURATION) {
-            backPressed++;
-            if (backPressed == 1) {
-                /*Toast toast = new Toast(this);
-                toast.setText(R.string.press_again_to_exit);
-                toast.show();
-                toast.*/
+                backPressed++;
                 Toast.makeText(this, R.string.press_again_to_exit, Toast.LENGTH_SHORT).show();
             }
 

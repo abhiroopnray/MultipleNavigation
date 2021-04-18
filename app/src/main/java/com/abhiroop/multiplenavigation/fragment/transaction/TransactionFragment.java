@@ -2,6 +2,7 @@ package com.abhiroop.multiplenavigation.fragment.transaction;
 
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,18 +14,26 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.abhiroop.multiplenavigation.R;
+import com.abhiroop.multiplenavigation.activity.MainActivity;
 
 public class TransactionFragment extends Fragment {
 
     private TransactionViewModel mViewModel;
+    private Context mContext;
 
-    public static TransactionFragment newInstance() {
-        return new TransactionFragment();
+    public TransactionFragment(Context mContext) {
+        this.mContext = mContext;
+    }
+
+    public static TransactionFragment newInstance(Context context) {
+        return new TransactionFragment(context);
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
+        ((MainActivity)mContext).showHideAdBanner(false);
+
         return inflater.inflate(R.layout.transaction_fragment, container, false);
     }
 
