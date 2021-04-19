@@ -309,7 +309,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }, BACK_PRESS_DURATION);
         }
-    }
+
 
     private void updateBottomNavigation(String presentFragment){
         Log.d("Abhirpop", "Abhiroop tag : " + presentFragment);

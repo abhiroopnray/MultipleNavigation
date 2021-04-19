@@ -45,6 +45,7 @@ public class CreateTeamActivity extends AppCompatActivity {
         tabLayout = findViewById(R.id.tab_layout);
         createCardAdapter();
         viewPager.setAdapter(createCardAdapter());
+        viewPager.setOffscreenPageLimit(4);
         TabLayoutMediator tabLayoutMediator = new TabLayoutMediator(tabLayout, viewPager, new TabLayoutMediator.TabConfigurationStrategy() {
             @Override
             public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
