@@ -12,15 +12,19 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.abhiroop.multiplenavigation.R;
+import com.abhiroop.multiplenavigation.activity.CreateTeamActivity;
 
 public class BatsmanFragmentAdapter extends RecyclerView.Adapter<BatsmanFragmentAdapter.ViewHolder> {
 
     private Context mContext;
     private SparseBooleanArray itemStateArray = new SparseBooleanArray();
+    private CreateTeamActivity mCreateTeamActivity;
 
 
-    public BatsmanFragmentAdapter(Context context) {
+
+    public BatsmanFragmentAdapter(Context context, CreateTeamActivity createTeamActivity) {
         mContext = context;
+        mCreateTeamActivity = createTeamActivity;
     }
 
     @NonNull
@@ -60,16 +64,20 @@ public class BatsmanFragmentAdapter extends RecyclerView.Adapter<BatsmanFragment
         public void onClick(View view) {
             int adapterPosition = getAdapterPosition();
             if (!itemStateArray.get(adapterPosition, false)) {
-                if (itemStateArray.size() > 3) {
-                    Toast.makeText(mContext, R.string.cannot_have_more_wc, Toast.LENGTH_SHORT).show();
+                if (itemStateArray.size() > 5) {
+                    Toast.makeText(mContext, R.string.cannot_have_more_batsman, Toast.LENGTH_SHORT).show();
                     return;
                 }
                 iv_add_player.setImageResource(R.drawable.ic_menu_close_clear_cancel);
                 itemStateArray.put(adapterPosition, true);
+                mCreateTeamActivity.addPlayersToTeam("Batsman" + getAdapterPosition());
+
 
             } else {
                 iv_add_player.setImageResource(R.drawable.ic_menu_btn_add);
                 itemStateArray.put(adapterPosition, false);
+                mCreateTeamActivity.deletePlayersToTeam("Batsman" + getAdapterPosition());
+
             }
         }
     }

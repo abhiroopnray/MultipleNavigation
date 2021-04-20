@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.abhiroop.multiplenavigation.R;
+import com.abhiroop.multiplenavigation.activity.CreateTeamActivity;
 import com.abhiroop.multiplenavigation.adapter.AllRounderFragmentAdapter;
 import com.abhiroop.multiplenavigation.adapter.WicketKeeperFragmentAdapter;
 
@@ -40,7 +41,7 @@ public class AllRounderFragment extends Fragment {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.hasFixedSize();
-        AllRounderFragmentAdapter adapter = new AllRounderFragmentAdapter(getContext());
+        AllRounderFragmentAdapter adapter = new AllRounderFragmentAdapter(getContext(), (CreateTeamActivity)getActivity());
         recyclerView.setAdapter(adapter);
     }
 

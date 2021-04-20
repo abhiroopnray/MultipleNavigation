@@ -13,7 +13,7 @@
     <RelativeLayout
         android:id="@+id/layout_create_team_top_view"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/size_200"
+        android:layout_height="@dimen/size_180"
         android:layout_below="@+id/toolbar"
         android:background="@color/indian_jersey_blue">
 
@@ -162,10 +162,43 @@
         layout="@layout/player_selection_header"
         android:layout_below="@+id/tab_layout" />
 
-    <androidx.viewpager2.widget.ViewPager2 xmlns:android="http://schemas.android.com/apk/res/android"
+    <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/pager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/layout_player_selection"
-        app:tabMode="scrollable" />
+        android:layout_height="@dimen/margin_350"
+        android:layout_below="@+id/layout_player_selection" />
+
+    <LinearLayout
+        android:id="@+id/btm_layout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_60"
+        android:orientation="horizontal"
+        android:background="@color/indian_jersey_saffron"
+        android:layout_alignParentBottom="true">
+
+        <Button
+            android:id="@+id/btn_team_preview"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:layout_margin="@dimen/margin_10"
+            android:background="@drawable/button_style"
+            android:text="@string/player_status"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/btn_create_team"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_margin="@dimen/margin_10"
+            android:layout_weight="1"
+            android:background="@drawable/button_style"
+            android:text="@string/next"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white" />
+
+
+    </LinearLayout>
+
 </RelativeLayout>

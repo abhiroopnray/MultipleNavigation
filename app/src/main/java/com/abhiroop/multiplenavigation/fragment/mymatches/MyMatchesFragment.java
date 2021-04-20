@@ -15,18 +15,19 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.abhiroop.multiplenavigation.R;
+/*
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.Viewport;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
-
+*/
 import java.util.Random;
 
 public class MyMatchesFragment extends Fragment {
 
     private MyMatchesViewModel mViewModel;
     private static final Random RANDOM = new Random();
-    private LineGraphSeries<DataPoint> series;
+   // private LineGraphSeries<DataPoint> series;
     private int lastX = 0;
 
     public static MyMatchesFragment newInstance() {
@@ -52,7 +53,7 @@ public class MyMatchesFragment extends Fragment {
     }
 
     private void setupGraphView(View view) {
-        GraphView graph = (GraphView) view.findViewById(R.id.graph);
+       /* GraphView graph = (GraphView) view.findViewById(R.id.graph);
         graph.setBackgroundColor(getContext().getColor(R.color.white));
         // data
         series = new LineGraphSeries<DataPoint>();
@@ -62,11 +63,11 @@ public class MyMatchesFragment extends Fragment {
         viewport.setYAxisBoundsManual(true);
         viewport.setMinY(0);
         viewport.setMaxY(10);
-        viewport.setScrollable(true);
+        viewport.setScrollable(true);*/
     }
 
     private void addEntry(){
-        series.appendData(new DataPoint(lastX++, RANDOM.nextDouble() * 10d), true, 100 );
+       /// series.appendData(new DataPoint(lastX++, RANDOM.nextDouble() * 10d), true, 100 );
 
     }
 

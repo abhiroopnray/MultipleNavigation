@@ -146,4 +146,15 @@
     <string name="tournaments_joined">Total Tournament Joined</string>
     <string name="tournaments_wins">Total Wins</string>
     <string name="cannot_have_more_wc">Maximum 3 wicket keepers can be chosen</string>
+    <string name="cannot_have_more_bowler">Maximum 5 bowler can be chosen</string>
+    <string name="cannot_have_more_batsman">Maximum 5 batsman can be chosen</string>
+    <string name="cannot_have_more_all_rounder">Maximum 5 all rounder can be chosen</string>
+    <string name="cannot_have_more_than_11_players">You cannot select more than 11 players</string>
+    <string name="select_11_players">Please select 11 players</string>
+
+    <!-- Facebook Login-->
+    <string name="facebook_app_id">2936303123359330</string>
+    <string name="fb_login_protocol_scheme">fb2936303123359330</string>
+    <string name="next">Next</string>
+
 </resources>

@@ -12,15 +12,19 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.abhiroop.multiplenavigation.R;
+import com.abhiroop.multiplenavigation.activity.CreateTeamActivity;
 
 public class BowlerFragmentAdapter extends RecyclerView.Adapter<BowlerFragmentAdapter.ViewHolder> {
 
     private Context mContext;
     private SparseBooleanArray itemStateArray = new SparseBooleanArray();
+    private CreateTeamActivity mCreateTeamActivity;
 
 
-    public BowlerFragmentAdapter(Context context) {
+
+    public BowlerFragmentAdapter(Context context, CreateTeamActivity createTeamActivity) {
         mContext = context;
+        mCreateTeamActivity = createTeamActivity;
     }
 
     @NonNull
@@ -60,16 +64,20 @@ public class BowlerFragmentAdapter extends RecyclerView.Adapter<BowlerFragmentAd
         public void onClick(View view) {
             int adapterPosition = getAdapterPosition();
             if (!itemStateArray.get(adapterPosition, false)) {
-                if (itemStateArray.size() > 3) {
-                    Toast.makeText(mContext, R.string.cannot_have_more_wc, Toast.LENGTH_SHORT).show();
+                if (itemStateArray.size() > 5) {
+                    Toast.makeText(mContext, R.string.cannot_have_more_bowler, Toast.LENGTH_SHORT).show();
                     return;
                 }
                 iv_add_player.setImageResource(R.drawable.ic_menu_close_clear_cancel);
                 itemStateArray.put(adapterPosition, true);
+                mCreateTeamActivity.addPlayersToTeam("Bowler" + getAdapterPosition());
+
 
             } else {
                 iv_add_player.setImageResource(R.drawable.ic_menu_btn_add);
                 itemStateArray.put(adapterPosition, false);
+                mCreateTeamActivity.deletePlayersToTeam("Bowler" + getAdapterPosition());
+
             }
         }
     }

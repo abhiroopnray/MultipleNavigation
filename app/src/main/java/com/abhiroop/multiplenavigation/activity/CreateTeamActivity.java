@@ -9,10 +9,13 @@ import androidx.viewpager.widget.ViewPager;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.abhiroop.multiplenavigation.R;
 import com.abhiroop.multiplenavigation.fragment.createteam.AllRounderFragment;
@@ -22,10 +25,17 @@ import com.abhiroop.multiplenavigation.fragment.createteam.WicketKeeperFragment;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
-public class CreateTeamActivity extends AppCompatActivity {
+import java.util.ArrayList;
+
+public class CreateTeamActivity extends AppCompatActivity implements View.OnClickListener {
 
     private TabLayout tabLayout;
     private ViewPager2 viewPager;
+    private Button btn_create_team, btn_team_preview;
+
+
+    private ArrayList<String> players;
+
     /*private int[] tabIcons = {
             R.drawable.ic_wicket_keeper,
             R.drawable.ic_batsman,
@@ -38,6 +48,16 @@ public class CreateTeamActivity extends AppCompatActivity {
         setContentView(R.layout.activity_create_team);
         setUpToolBar();
         setUpViewPager();
+        initView();
+        players = new ArrayList<>(11);
+    }
+
+    private void initView() {
+        btn_create_team = findViewById(R.id.btn_create_team);
+        btn_team_preview = findViewById(R.id.btn_team_preview);
+        btn_create_team.setOnClickListener(this);
+        btn_team_preview.setOnClickListener(this);
+
     }
 
     private void setUpViewPager() {
@@ -49,7 +69,7 @@ public class CreateTeamActivity extends AppCompatActivity {
         TabLayoutMediator tabLayoutMediator = new TabLayoutMediator(tabLayout, viewPager, new TabLayoutMediator.TabConfigurationStrategy() {
             @Override
             public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
-                switch (position){
+                switch (position) {
                     case 0:
                         tab.setIcon(R.drawable.ic_wicket_keeper);
                         tab.setText(R.string.wicket_keeper);
@@ -94,7 +114,27 @@ public class CreateTeamActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public class ViewPagerAdapter extends FragmentStateAdapter{
+    @Override
+    public void onClick(View view) {
+        int id = view.getId();
+        switch (id) {
+            case R.id.btn_create_team:
+                if(getTeamSize() == 11) {
+                    Intent intent = new Intent(this, CaptainSelectionActivity.class);
+                    startActivity(intent);
+                }else{
+                    Toast.makeText(this, R.string. select_11_players, Toast.LENGTH_SHORT).show();
+                }
+                break;
+            case R.id.btn_team_preview:
+                Intent intent1 = new Intent(this, TeamPreviewActivity.class);
+                startActivity(intent1);
+                break;
+        }
+
+    }
+
+    public class ViewPagerAdapter extends FragmentStateAdapter {
 
         public ViewPagerAdapter(@NonNull FragmentActivity fragmentActivity) {
             super(fragmentActivity);
@@ -104,7 +144,7 @@ public class CreateTeamActivity extends AppCompatActivity {
         @Override
         public Fragment createFragment(int position) {
             Fragment fragment;
-            switch (position){
+            switch (position) {
                 case 0:
                     fragment = new WicketKeeperFragment();
                     return fragment;
@@ -125,5 +165,20 @@ public class CreateTeamActivity extends AppCompatActivity {
         public int getItemCount() {
             return 4;
         }
+    }
+
+    public int getTeamSize(){
+        return players.size();
+    }
+
+    public void addPlayersToTeam(String playerName) {
+        if (players.size() == 11) {
+            Toast.makeText(this, R.string.cannot_have_more_than_11_players, Toast.LENGTH_SHORT).show();
+        }
+        players.add(playerName);
+    }
+
+    public void deletePlayersToTeam(String playerName) {
+        players.remove(playerName);
     }
 }

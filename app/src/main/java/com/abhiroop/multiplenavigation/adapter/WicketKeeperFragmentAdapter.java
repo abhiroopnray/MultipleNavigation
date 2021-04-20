@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.abhiroop.multiplenavigation.R;
+import com.abhiroop.multiplenavigation.activity.CreateTeamActivity;
 
 public class WicketKeeperFragmentAdapter extends RecyclerView.Adapter<WicketKeeperFragmentAdapter.ViewHolder> {
 
@@ -21,9 +22,11 @@ public class WicketKeeperFragmentAdapter extends RecyclerView.Adapter<WicketKeep
     private int wicketKeeperLimit;
     private ImageView iv_add_player;
     private SparseBooleanArray itemStateArray = new SparseBooleanArray();
+    private CreateTeamActivity mCreateTeamActivity;
 
-    public WicketKeeperFragmentAdapter(Context context) {
+    public WicketKeeperFragmentAdapter(Context context, CreateTeamActivity createTeamActivity) {
         mContext = context;
+        mCreateTeamActivity = createTeamActivity;
     }
 
     @NonNull
@@ -69,10 +72,13 @@ public class WicketKeeperFragmentAdapter extends RecyclerView.Adapter<WicketKeep
                 }
                 iv_add_player.setImageResource(R.drawable.ic_menu_close_clear_cancel);
                 itemStateArray.put(adapterPosition, true);
+                mCreateTeamActivity.addPlayersToTeam("WC" + getAdapterPosition());
 
             } else {
                 iv_add_player.setImageResource(R.drawable.ic_menu_btn_add);
                 itemStateArray.put(adapterPosition, false);
+                mCreateTeamActivity.deletePlayersToTeam("WC" + getAdapterPosition());
+
             }
         }
     }

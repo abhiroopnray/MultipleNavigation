@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.abhiroop.multiplenavigation.R;
+import com.abhiroop.multiplenavigation.activity.CreateTeamActivity;
 import com.abhiroop.multiplenavigation.adapter.BatsmanFragmentAdapter;
 import com.abhiroop.multiplenavigation.adapter.BowlerFragmentAdapter;
 
@@ -40,7 +41,7 @@ public class BowlerFragment extends Fragment {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.hasFixedSize();
-        BowlerFragmentAdapter adapter = new BowlerFragmentAdapter(getContext());
+        BowlerFragmentAdapter adapter = new BowlerFragmentAdapter(getContext(), (CreateTeamActivity)getActivity());
         recyclerView.setAdapter(adapter);
     }
 

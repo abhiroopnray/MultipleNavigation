@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.abhiroop.multiplenavigation.R;
+import com.abhiroop.multiplenavigation.activity.CreateTeamActivity;
 import com.abhiroop.multiplenavigation.adapter.BatsmanFragmentAdapter;
 import com.abhiroop.multiplenavigation.fragment.home.HomeFragmentAdapter;
 import com.abhiroop.multiplenavigation.fragment.home.HomeViewModel;
@@ -41,7 +42,7 @@ public class BatsmanFragment extends Fragment {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.hasFixedSize();
-        BatsmanFragmentAdapter adapter = new BatsmanFragmentAdapter(getContext());
+        BatsmanFragmentAdapter adapter = new BatsmanFragmentAdapter(getContext(), (CreateTeamActivity)getActivity());
         recyclerView.setAdapter(adapter);
     }
 
